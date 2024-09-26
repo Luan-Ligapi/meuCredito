@@ -1,6 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import HistoricoModel from '../models/historico'; // Ajuste o caminho conforme necessário
+import HistoricoModel from '../models/Historico'; // Ajuste o caminho conforme necessário
 
 const router = Router();
 const SECRET_KEY = process.env.SECRET_KEY || "MeuCredito-PassH@55-sandbox"; // Use uma chave segura em produção
@@ -21,16 +21,7 @@ const verifyToken = (req: Request, res: Response, next: NextFunction): any => {
     });
 };
 
-// Rota para buscar dados de dívida
-router.get('/debt', verifyToken, async (req: Request, res: Response): Promise<void> => {
-    try {
-        res.json({ debt: "Debt data fetched successfully." });
-    } catch (error) {
-        res.status(500).send("Server error.");
-    }
-});
 
-// Rota para calcular o valor máximo em aberto
 // Rota para calcular o valor máximo em aberto
 router.post('/calculate-debt', verifyToken, async (req: Request, res: Response): Promise<void> => {
     console.log("Recebendo dados para calcular dívida:", req.body); // Log do corpo da requisição
@@ -74,31 +65,16 @@ router.post('/calculate-debt', verifyToken, async (req: Request, res: Response):
     }
 });
 
-// Rota para listar contratos do cliente
-router.get('/contracts', verifyToken, async (req: Request, res: Response): Promise<void> => {
-    try {
-        console.log("Listando contratos do cliente.");
 
-        const contracts = [
-            { id: 1, client: 'Maria', amount: 500 },
-            { id: 2, client: 'Maria', amount: 300 },
-        ];
-        res.json(contracts);
-    } catch (error) {
-        console.error("Erro ao listar contratos:", error);
-        res.status(500).send("Server error.");
-    }
-});
-
-// Rota para consultar o histórico
 // Rota para consultar o histórico
 router.get('/historico', verifyToken, async (req: Request, res: Response): Promise<any> => {
     try {
         console.log("Consultando histórico.");
 
-        const historicos = await HistoricoModel.find(); // Busca todos os documentos da coleção
+        const historicos = await HistoricoModel.find({}, { '_id': 0, 'parcelas._id': 0 }); // Exclui os '_id' dos documentos e de 'parcelas'
+
         if (historicos.length === 0) {
-            return res.status(404).json({ message: "Nenhum histórico encontrado." });
+            return res.status(204).json({ message: "Nenhum histórico encontrado." });
         }
 
         res.json(historicos);
@@ -107,6 +83,8 @@ router.get('/historico', verifyToken, async (req: Request, res: Response): Promi
         res.status(500).send("Error fetching historical data.");
     }
 });
+
+
 
 
 export default router;

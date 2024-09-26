@@ -9,7 +9,7 @@ interface IParcela {
     capitalaberto: number;
 }
 
-interface IHistorico extends Document {
+interface Historico extends Document {
     parcelas: IParcela[];
     contrato: string;
     data: string;
@@ -38,6 +38,6 @@ const HistoricoSchema: Schema = new Schema({
 }, { timestamps: true }); // Adiciona campos de createdAt e updatedAt
 
 // Criando o modelo
-const HistoricoModel = mongoose.model<IHistorico>('Historico', HistoricoSchema);
+const HistoricoModel = mongoose.model<Historico>('Historico', HistoricoSchema);
 
 export default HistoricoModel;

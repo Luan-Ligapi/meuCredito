@@ -16,6 +16,12 @@ mongoose.connect(mongoURI)
     console.error('Erro ao conectar ao MongoDB:', err);
 });
 
+const cors = require('cors');
+app.use(cors()); // Isso permite solicitações de qualquer origem
+// Ou você pode configurar para apenas algumas origens:
+app.use(cors({
+  origin: '*' // Apenas permitir solicitações desta origem
+}));
 
 app.use(express.json({ limit: '50mb' })); // Ajuste conforme necessário
 app.use(express.urlencoded({ limit: '50mb', extended: true }));

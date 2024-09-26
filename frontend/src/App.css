@@ -1,13 +1,19 @@
 /* Cores baseadas nos guias de design */
 :root {
-  --primary-color: #0052CC; /* Cor primária do design system */
-  --secondary-color: #172B4D; /* Cor secundária */
-  --background-color: #F4F5F7; /* Cor de fundo clara */
-  --error-color: #FF5630; /* Cor de erro */
-  --button-background: #0052CC; /* Cor de fundo do botão */
-  --button-text-color: #FFFFFF; /* Cor do texto do botão */
+  --primary-color: #0052CC; /* Azul Principal */
+  --secondary-color: #172B4D; /* Azul Escuro */
+  --background-color: #F4F5F7; /* Cinza Claro */
+  --error-color: #FF5630; /* Vermelho */
+  --success-color: #36B37E; /* Verde */
+  --warning-color: #FFAB00; /* Amarelo */
+  --info-color: #0052CC; /* Azul Informativo */
+  --table-header-background: #0052CC; /* Azul para cabeçalho da tabela */
+  --table-header-text-color: #FFFFFF; /* Branco para texto do cabeçalho */
+  --table-row-background: #FFFFFF; /* Branco para linhas */
+  --table-row-hover-background: #F1F1F1; /* Cinza para hover */
 }
 
+/* Estilo Geral */
 .App {
   text-align: center;
   background-color: var(--background-color);
@@ -17,35 +23,60 @@
 .titulo {
   font-family: 'Arial', sans-serif;
   color: var(--primary-color);
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
+/* Estilos da Tabela */
 .tabela-historico {
-  width: 80%;
-  margin: 20px auto;
+  width: 100%;
   border-collapse: collapse;
-  background-color: white;
+  margin: 20px 0;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+.tabela-historico th,
+.tabela-historico td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.tabela-historico th {
+  background-color: var(--table-header-background);
+  color: var(--table-header-text-color);
+}
+
+.tabela-historico tr:hover {
+  background-color: var(--table-row-hover-background); /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilos para as Parcelas */
+.tabela-parcelas {
+  width: 100%; /* Garantir que a tabela de parcelas ocupe toda a largura */
+  margin-top: 10px; /* Margem para separação */
+}
+
+.tabela-parcelas th {
+  background-color: var(--table-header-background);
+  color: var(--table-header-text-color);
+  padding: 10px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.tabela-parcelas td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 10px;
+  text-align: left; /* Alinhamento do texto à esquerda */
 }
 
-th {
-  background-color: var(--secondary-color);
-  color: white;
-}
-
-td {
-  text-align: center;
-}
-
+/* Estilos de Botão */
 .botao-calculo {
   padding: 10px 20px;
   margin: 20px 0;
-  background-color: var(--button-background);
-  color: var(--button-text-color);
+  background-color: var(--primary-color);
+  color: var(--table-header-text-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -54,10 +85,11 @@ td {
 }
 
 .botao-calculo:disabled {
-  background-color: #B3D4FF;
+  background-color: #B3D4FF; /* Cor de fundo quando desabilitado */
   cursor: not-allowed;
 }
 
+/* Estilos de Resultado e Erros */
 .resultado {
   font-size: 18px;
   color: var(--primary-color);
@@ -66,4 +98,28 @@ td {
 .erro {
   color: var(--error-color);
   font-weight: bold;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .tabela-historico, .tabela-parcelas {
+    width: 100%; /* Ajusta a tabela para ocupar toda a largura em dispositivos menores */
+  }
+
+  .titulo {
+    font-size: 20px; /* Tamanho menor para título em dispositivos menores */
+  }
+
+  .botao-calculo {
+    width: 100%; /* Botão ocupa toda a largura em dispositivos móveis */
+  }
+}
+
+/* Efeitos de Hover */
+.tabela-historico tr {
+  transition: background-color 0.3s;
+}
+
+.tabela-historico tr:hover {
+  background-color: var(--table-row-hover-background); /* Cor de fundo ao passar o mouse */
 }
