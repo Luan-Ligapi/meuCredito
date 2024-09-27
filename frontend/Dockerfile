@@ -1,25 +1,23 @@
-# frontend/Dockerfile
+# Dockerfile
+FROM node:20.15.1
 
-# Usando uma imagem Node.js como base
-FROM node:14
-
-# Definindo o diretório de trabalho
+# Define o diretório de trabalho
 WORKDIR /usr/src/app
 
-# Copiando os arquivos de dependência
+# Copia o package.json e o package-lock.json
 COPY package*.json ./
 
-# Instalando as dependências
+# Instala as dependências
 RUN npm install
 
-# Copiando o restante do código
+# Copia o restante do código
 COPY . .
 
-# Construindo a aplicação
+# Executa o build
 RUN npm run build
 
-# Expondo a porta que o app vai rodar
+# Expondo a porta se necessário
 EXPOSE 3000
 
-# Comando para rodar a aplicação
-CMD ["npx", "serve", "-s", "build"]
+# Comando padrão para iniciar a aplicação
+CMD ["npm", "start"]
