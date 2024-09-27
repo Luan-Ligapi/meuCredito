@@ -4,7 +4,7 @@ import app from '../app';
 describe('Calculate Simple Debt', () => {
   it('should return the maximum debt from the history', async () => {
     const response = await request(app)
-      .post('/api/calculate-debt')
+      .post('/api/calculate')
       .set('Authorization', 'Bearer validtoken')
       .send({ contratos: [/* Dados de exemplo */] });
 
@@ -15,7 +15,7 @@ describe('Calculate Simple Debt', () => {
 
   it('should return 401 for missing token', async () => {
     const response = await request(app)
-      .post('/api/calculate-debt')
+      .post('/api/calculate')
       .send({ contratos: [/* Dados de exemplo */] });
 
     expect(response.status).toBe(401);
@@ -23,7 +23,7 @@ describe('Calculate Simple Debt', () => {
 
   it('should return 400 for invalid payload', async () => {
     const response = await request(app)
-      .post('/api/calculate-debt')
+      .post('/api/calculate')
       .set('Authorization', 'Bearer validtoken')
       .send({ contratos: [{ parcelas: [{}] }] });
 

@@ -1,1 +1,1 @@
-# meuCredito
+# meuCrediário

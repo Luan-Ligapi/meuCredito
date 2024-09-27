@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 const mongoURI = 'mongodb+srv://luangatitoz:lZf9sqy2LYOXO6nq@meucredito.scjkb.mongodb.net/?retryWrites=true&w=majority&appName=meuCredito'; // Substitua <db_password> pela sua senha
 mongoose.connect(mongoURI)
