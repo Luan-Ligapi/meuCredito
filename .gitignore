@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-
+/data
+/meuCredito-6ae28e6f8f3c8cd7cec719ce22bab7a6b4e13ba6
 # testing
 /coverage
 
