@@ -28,7 +28,6 @@ npm install
 
 
 Para o frontend:
-cd ../frontend
 npm install
 
 ## Com Docker
@@ -38,4 +37,4 @@ docker-compose up --build
 ## Sem Docker
 
 cd backend && npm install  && npm start
-cd frontend && npm install  && npm start
+npm install  && npm start
