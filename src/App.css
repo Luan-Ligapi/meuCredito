@@ -1,0 +1,220 @@
+:root {
+  --color-primary-lightest: #8CBFB7;
+  --color-primary-light: #00856E;
+  --color-primary: #006151; /* Cor primária */
+  --color-primary-dark: #004A3F;
+  --color-secondary-light: #02E09F;
+  --color-secondary: #01865F;
+  --color-secondary-dark: #016F4F;
+  --color-gray-light: #E9ECEF;
+  --color-gray: #6C757D;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray-dark: #505050; /* Adicionada para textos */
+  
+  /* Tipografia */
+  --font-base-size: 16px; /* Tamanho base */
+  --font-heading-h1: 31px;
+  --font-heading-h2: 28px;
+  --font-heading-h3: 25px;
+  --font-heading-h4: 22px;
+  --font-heading-h5: 20px;
+  --font-heading-h6: 17px;
+  --font-body: 16px;
+  --font-small: 14px;
+  --font-extra-small: 12px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif; /* Atualizando a fonte */
+  margin: 0;
+  background-color: var(--color-primary-lightest);
+  color: var(--color-gray-dark);
+}
+
+h1 {
+  font-size: var(--font-heading-h1);
+  line-height: 1.2;
+  color: var(--color-gray-dark);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: var(--font-heading-h2);
+  line-height: 1.2;
+  color: var(--color-gray-dark);
+  font-weight: 800;
+}
+
+h3 {
+  font-size: var(--font-heading-h3);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: var(--font-heading-h4);
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: var(--font-heading-h5);
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: var(--font-heading-h6);
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+header {
+  background-color: var(--color-primary);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px; /* Largura máxima do contêiner */
+  margin: 0 auto; /* Centraliza o contêiner */
+  padding: 20px; /* Adiciona espaçamento interno */
+}
+
+/* Seção de cálculo */
+.calculate-section {
+  display: flex;
+  align-items: center; /* Alinha os itens no centro verticalmente */
+  justify-content: space-between; /* Espaça os itens horizontalmente */
+  margin: 20px 0; /* Margem em cima e embaixo */
+}
+
+/* Estilos para o resultado do cálculo */
+.resultado-calculo {
+  background-color: var(--color-gray-light); /* Fundo cinza claro */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Largura fixa */
+  margin-left: 20px; /* Espaçamento entre o botão e o resultado */
+}
+
+/* Estilos para o Container da Documentação */
+.documentation-header {
+  background-color: var(--color-white); /* Fundo branco para o texto legível */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.resultado-calculo h3 {
+  margin: 0;
+  color: var(--color-gray-dark); /* Cor do texto */
+}
+
+.resultado-calculo p {
+  font-size: var(--font-body);
+  font-weight: bold;
+  color: var(--color-gray-dark); /* Cor do texto */
+}
+
+/* Estilos da Tabela */
+.tabela-historico {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.tabela-historico th,
+.tabela-historico td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid var(--color-gray-light);
+}
+
+.tabela-historico th {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.tabela-historico th:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.tabela-historico tr:nth-child(even) {
+  background-color: var(--color-gray-light);
+}
+
+.tabela-historico tr:hover {
+  background-color: var(--color-primary-lightest);
+}
+
+/* Estilo para o Campo de Busca */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--color-gray-light);
+  border-radius: 4px;
+}
+
+input[type="text"]:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+/* Estilo do Botão */
+button {
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: var(--font-small);
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .calculate-section {
+    flex-direction: column; /* Empilha os itens verticalmente em telas menores */
+    align-items: stretch; /* Faz com que os itens ocupem toda a largura */
+  }
+
+  .resultado-calculo {
+    width: 100%; /* Largura 100% em telas menores */
+    margin-left: 0; /* Remove a margem esquerda */
+    margin-top: 10px; /* Adiciona espaçamento acima */
+  }
+
+  h1 {
+    font-size: var(--font-heading-h1); /* Ajusta o tamanho da fonte para telas pequenas */
+  }
+
+  h2 {
+    font-size: var(--font-heading-h2); /* Ajusta o tamanho da fonte para telas pequenas */
+  }
+
+  button {
+    width: 100%; /* Botão ocupa toda a largura em telas pequenas */
+  }
+
+  .tabela-historico th,
+  .tabela-historico td {
+    padding: 8px; /* Reduz o padding em tabelas para telas pequenas */
+  }
+}
