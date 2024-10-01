@@ -18,17 +18,6 @@ Meu Crédito é uma aplicação full stack desenvolvida para gerenciar o histór
 
 git clone https://github.com/gatitoz-luan/meuCredito.git
 cd meuCredito
-npm start
-
-ou
-
-Para o backend:
-cd backend
-npm install
-
-
-Para o frontend:
-npm install
 
 ## Com Docker
 
@@ -36,5 +25,6 @@ docker-compose up --build
 
 ## Sem Docker
 
-cd backend && npm install  && npm start
 npm install  && npm start
+cd backend && npm install  && npm start
+
